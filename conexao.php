@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 const HOST = 'LOCALHOST';
 const USUARIO = 'root';
 const SENHA = '9581@mysqlFRVS';
