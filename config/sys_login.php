@@ -1,6 +1,6 @@
 <?php
 
-include('conexao.php');
+include('connection.php');
 
 if(isset($_POST['usuario'], $_POST['senha'])){
     $usuario = $_POST['usuario'];

@@ -36,7 +36,7 @@ include('../config/middleware/check_login.php');
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
-                            Login
+                            Registrar
                         </div>
                         <div class="card-body">
                             <form action="../config/sys_login.php" method="post">
@@ -53,10 +53,17 @@ include('../config/middleware/check_login.php');
                                 unset($_SESSION['não_autenticado']);
                                 ?>
                                 <div class="form-group row">
-                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">Usuario</label>
+                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">Nome</label>
                                     <div class="col-md-6">
                                         <input type="text" id="email_address" class="form-control" name="usuario"
                                             required autofocus>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">Usuario</label>
+                                    <div class="col-md-6">
+                                        <input type="password" id="password" class="form-control" name="senha" required>
                                     </div>
                                 </div>
 
@@ -68,22 +75,16 @@ include('../config/middleware/check_login.php');
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-md-6 offset-md-4">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="remember"> Lembre-se de mim
-                                            </label>
-                                        </div>
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">Cargo</label>
+                                    <div class="col-md-6">
+                                        <input type="password" id="password" class="form-control" name="senha" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Login
+                                        Registrar
                                     </button>
-                                    <a href="#" class="btn btn-link">
-                                        Esqueceu sua senha?
-                                    </a>
                                 </div>
                             </form>
                         </div>

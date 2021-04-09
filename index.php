@@ -13,7 +13,7 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
 <?php
-    include('config/conexao.php')
+    include('config/connection.php')
 ?>
 
 
@@ -26,7 +26,7 @@ Coded by www.creative-tim.com
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Paper Dashboard 2 by Creative Tim
+    Dashboard
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
@@ -130,16 +130,14 @@ Coded by www.creative-tim.com
                                     <a class="dropdown-item" href="#">Alguma Coisa Aqui</a>
                                 </div>
                             </li>
-                        </ul>
-                        <?php if($_SESSION['usuario'] != true) :?>
-                        <div class="perso-button nav-item">
-                            <a href="views/login.php">Login</a>
-                        </div>
-                        <div class='perso-button'>
-                            <a href="#">Cadastrar</a>
-                        </div>
-                        <?php else :?>
-                        <ul class="navbar-nav">
+                            <?php if($_SESSION['usuario'] != true) :?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="views/login.php">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="views/register.php">Cadastrar</a>
+                            </li>
+                            <?php else :?>
                             <li class="nav-item btn-rotate dropdown">
                                 <a class="nav-link dropdown-toggle" href="http://example.com"
                                     id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"

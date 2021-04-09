@@ -1,6 +1,6 @@
 <?php
 
-include('../config/conexao.php');
+include('../config/connection.php');
 
 if($_SESSION['login'] != true){
     header('Location: ../../index.php');
