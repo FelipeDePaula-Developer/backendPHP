@@ -12,6 +12,11 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
+<?php
+    include('config/conexao.php')
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -33,6 +38,7 @@ Coded by www.creative-tim.com
     <link href="./assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="./assets/demo/demo.css" rel="stylesheet" />
+    <link href="assets/icons/font/css/open-iconic-bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -47,7 +53,7 @@ Coded by www.creative-tim.com
                     <!-- <p>CT</p> -->
                 </a>
                 <a href="https://www.creative-tim.com" class="simple-text logo-normal">
-                    Your Logo
+                    Logo
                     <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
           </div> -->
@@ -58,19 +64,19 @@ Coded by www.creative-tim.com
                     <li class="active ">
                         <a href="javascript:;">
                             <i class="nc-icon nc-bank"></i>
-                            <p>First Item</p>
+                            <p>Primeiro Item</p>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:;">
                             <i class="nc-icon nc-diamond"></i>
-                            <p>Second Item</p>
+                            <p>Segundo Item</p>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:;">
                             <i class="nc-icon nc-pin-3"></i>
-                            <p>Third Item</p>
+                            <p>Terceiro Item</p>
                         </a>
                     </li>
                 </ul>
@@ -88,7 +94,7 @@ Coded by www.creative-tim.com
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="javascript:;">Title</a>
+                        <a class="navbar-brand" href="javascript:;">Titulo</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
                         aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,7 +105,7 @@ Coded by www.creative-tim.com
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <input type="text" value="" class="form-control" placeholder="Procurar...">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <i class="nc-icon nc-zoom-split"></i>
@@ -112,24 +118,41 @@ Coded by www.creative-tim.com
                                 <a class="nav-link dropdown-toggle" href="http://example.com"
                                     id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
-                                    <i class="nc-icon nc-bell-55"></i>
+                                    <span class="oi oi-bell" title="bell" aria-hidden="true">
+                                    </span>
                                     <p>
-                                        <span class="d-lg-none d-md-block">Some Actions</span>
+                                        <span class="d-lg-none d-md-block">Algumas Ações</span>
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="#">Ação</a>
+                                    <a class="dropdown-item" href="#">Outra Ação</a>
+                                    <a class="dropdown-item" href="#">Alguma Coisa Aqui</a>
                                 </div>
                             </li>
                         </ul>
+                        <?php if($_SESSION['usuario'] != true) :?>
                         <div class="perso-button nav-item">
                             <a href="views/login.php">Login</a>
                         </div>
                         <div class='perso-button'>
                             <a href="#">Cadastrar</a>
                         </div>
+                        <?php else :?>
+                        <ul class="navbar-nav">
+                            <li class="nav-item btn-rotate dropdown">
+                                <a class="nav-link dropdown-toggle" href="http://example.com"
+                                    id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <span class="oi oi-person user-button" title="User" aria-hidden="true"></span>
+                                    Olá <?php echo $_SESSION['usuario'] ?>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="config/sys_logout.php">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <?php endif ?>
                     </div>
                 </div>
             </nav>
@@ -137,7 +160,7 @@ Coded by www.creative-tim.com
             <div class="content">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 class="description">Your content here</h3>
+                        <h3 class="description">Seu conteudo aqui</h3>
                     </div>
                 </div>
             </div>
