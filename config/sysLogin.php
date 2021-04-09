@@ -7,7 +7,7 @@ if(isset($_POST['usuario'], $_POST['senha'])){
     $senha = $_POST['senha'];
 
     if(empty($_POST['usuario']) || empty($_POST['senha'])){
-        header('Location: index.php');
+        header('Location: ../index.php');
     }else{
         $query = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = ?");
         $query->execute([$usuario]);
@@ -19,13 +19,15 @@ if(isset($_POST['usuario'], $_POST['senha'])){
                 $_SESSION['login'] = true;
                 $_SESSION['id'] = $info['userid'];
                 $_SESSION['usuario'] = $info['usuario'];
-                header('Location: painel_admin.php');
+                header('Location: ../../index.php');
                 die();
             }else{
-                echo '<div><p>Usuário ou senha incorretos!</p></div>';
+                $_SESSION['não_autenticado'] = true;
+                header('Location: ../views/login.php');
             }
         }else{
-            echo '<div><p>Usuário ou senha incorretos!</p></div>';
+            $_SESSION['não_autenticado'] = true;
+            header('Location: ../views/login.php');
         }
     }
 }
