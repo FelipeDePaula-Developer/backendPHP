@@ -39,31 +39,19 @@ include('../config/middleware/check_login.php');
                             Registrar
                         </div>
                         <div class="card-body">
-                            <form action="../config/sys_login.php" method="post">
-                                <?php 
-                                if (isset($_SESSION['não_autenticado'])): 
-                                ?>
-                                <div class="row">
-                                    <div class="offset-md-4 col-md-6">
-                                        <p>Usuário ou senha inválidos</p>
-                                    </div>
-                                </div>
-                                <?php
-                                endif;
-                                unset($_SESSION['não_autenticado']);
-                                ?>
+                            <form action="../config/sys_register.php" method="post">
                                 <div class="form-group row">
-                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">Nome</label>
+                                    <label for="name" class="col-md-4 col-form-label text-md-right">Nome</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="email_address" class="form-control" name="usuario"
+                                        <input type="text" id="name" class="form-control" name="nome"
                                             required autofocus>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">Usuario</label>
+                                    <label for="username" class="col-md-4 col-form-label text-md-right">Usuario</label>
                                     <div class="col-md-6">
-                                        <input type="password" id="password" class="form-control" name="senha" required>
+                                        <input type="text" id="username" class="form-control" name="usuario" required>
                                     </div>
                                 </div>
 
@@ -75,9 +63,9 @@ include('../config/middleware/check_login.php');
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">Cargo</label>
+                                    <label for="office" class="col-md-4 col-form-label text-md-right">Cargo</label>
                                     <div class="col-md-6">
-                                        <input type="password" id="password" class="form-control" name="senha" required>
+                                        <input type="text" id="office" class="form-control" name="cargo" required>
                                     </div>
                                 </div>
 
