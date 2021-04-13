@@ -18,7 +18,7 @@ if(isset($_POST['usuario'], $_POST['senha'])){
             $info = $query->fetch();
             if(password_verify($senha, $info[senha]) ){
                 $_SESSION['login'] = true;
-                $_SESSION['usuario'] = $info['usuario'];
+                $_SESSION['nome'] = $info['nome'];
                 header('Location: ../../index.php');
                 die();
             }else{

@@ -35,9 +35,9 @@ include('../config/middleware/check_login.php');
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">
-                            Login
-                        </div>
+                        <a href='../index.php' class='card-header back-link'>
+                            Voltar
+                        </a>
                         <div class="card-body">
                             <form action="../config/sys_login.php" method="post">
                                 <?php 

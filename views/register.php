@@ -35,16 +35,28 @@ include('../config/middleware/check_login.php');
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">
-                            Registrar
-                        </div>
+                        <a href='../index.php' class='card-header back-link'>
+                            Voltar
+                        </a>
                         <div class="card-body">
                             <form action="../config/sys_register.php" method="post">
+                                <?php 
+                                if (isset($_SESSION['user_nao_cadastrado'])): 
+                                ?>
+                                <div class="row">
+                                    <div class="offset-md-4 col-md-6">
+                                        <p>Usuário já cadastrado</p>
+                                    </div>
+                                </div>
+                                <?php
+                                endif;
+                                unset($_SESSION['user_nao_cadastrado']);
+                                ?>
                                 <div class="form-group row">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">Nome</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="name" class="form-control" name="nome"
-                                            required autofocus>
+                                        <input type="text" id="name" class="form-control" name="nome" required
+                                            autofocus>
                                     </div>
                                 </div>
 

@@ -26,7 +26,7 @@ Coded by www.creative-tim.com
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-    Dashboard
+        Dashboard
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />
@@ -130,7 +130,7 @@ Coded by www.creative-tim.com
                                     <a class="dropdown-item" href="#">Alguma Coisa Aqui</a>
                                 </div>
                             </li>
-                            <?php if($_SESSION['usuario'] != true) :?>
+                            <?php if($_SESSION['login'] != true) :?>
                             <li class="nav-item">
                                 <a class="nav-link" href="views/login.php">Login</a>
                             </li>
@@ -143,7 +143,7 @@ Coded by www.creative-tim.com
                                     id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     <span class="oi oi-person user-button" title="User" aria-hidden="true"></span>
-                                    Olá <?php echo $_SESSION['usuario'] ?>
+                                    Olá <?php echo $_SESSION['nome'] ?>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="config/sys_logout.php">Logout</a>
