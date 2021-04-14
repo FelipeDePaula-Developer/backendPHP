@@ -5,3 +5,11 @@
 .back-link:hover{
     text-decoration-line: none;
 }
+
+.exc-link{
+    color: #212529;
+}
+
+.exc-link:hover{
+    text-decoration: none;
+}

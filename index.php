@@ -33,6 +33,7 @@ Coded by www.creative-tim.com
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <!-- CSS Files -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
@@ -60,21 +61,24 @@ Coded by www.creative-tim.com
                 </a>
             </div>
             <div class="sidebar-wrapper">
-                <ul class="nav">
-                    <li class="active ">
-                        <a href="javascript:;">
-                            <i class="nc-icon nc-bank"></i>
-                            <p>Primeiro Item</p>
+                <ul class="nav" role='tablist'>
+                    <li class='nav-item'>
+                        <a class="nav-link" id="painel-user-tab" data-toggle="tab" href="#painel-user" role="tab"
+                            aria-controls="painel-user" aria-selected="true">
+                            <i class="bi bi-people-fill"></i>
+                            <p>Painel de Usuarios</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="javascript:;">
+                    <li class='nav-item'>
+                        <a class="nav-link" id="segundo-tab" data-toggle="tab" href="#segundo" role="tab"
+                            aria-controls="segundo" aria-selected="false">
                             <i class="nc-icon nc-diamond"></i>
                             <p>Segundo Item</p>
                         </a>
                     </li>
-                    <li>
-                        <a href="javascript:;">
+                    <li class='nav-item'>
+                        <a class="nav-link" id="terceiro-tab" data-toggle="tab" href="#terceiro" role="tab"
+                            aria-controls="terceiro" aria-selected="false">
                             <i class="nc-icon nc-pin-3"></i>
                             <p>Terceiro Item</p>
                         </a>
@@ -118,8 +122,7 @@ Coded by www.creative-tim.com
                                 <a class="nav-link dropdown-toggle" href="http://example.com"
                                     id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
-                                    <span class="oi oi-bell" title="bell" aria-hidden="true">
-                                    </span>
+                                    <i class="bi bi-bell-fill"></i>
                                     <p>
                                         <span class="d-lg-none d-md-block">Algumas Ações</span>
                                     </p>
@@ -142,7 +145,7 @@ Coded by www.creative-tim.com
                                 <a class="nav-link dropdown-toggle" href="http://example.com"
                                     id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
-                                    <span class="oi oi-person user-button" title="User" aria-hidden="true"></span>
+                                    <i class="bi bi-person-circle"></i>
                                     Olá <?php echo $_SESSION['nome'] ?>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
@@ -157,8 +160,40 @@ Coded by www.creative-tim.com
             <!-- End Navbar -->
             <div class="content">
                 <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="description">Seu conteudo aqui</h3>
+                    <div class="col-md-12 tab-content">
+                        <div class="tab-pane" id="painel-user" role="tabpanel" aria-labelledby="painel-user-tab">
+
+                            <a href='config/consult_user.php'>Consulta</a>
+                            <table class='table'>
+                                <thead>
+                                    <tr>
+                                        <th scope='col'>Nome</th>
+                                        <th scope='col'>Usuário</th>
+                                        <th scope='col'>Cargo</th>
+                                    </tr>
+                                </thead>
+                                <?php 
+                                $info = $_SESSION['usuarios'];
+                                for($i =0; $i < count($info); $i++):?>
+                                <tr>
+                                    <td><?php echo $info[$i]['nome'] ?></td>
+                                    <td><?php echo $info[$i]['usuario'] ?></td>
+                                    <td><?php echo ucfirst($info[$i]['cargo']) ?></td>
+                                    <td>
+                                        <a class='exc-link' href="#">
+                                            <i class="bi bi-person-dash-fill"></i>
+                                            Excluir
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?php endfor;
+                                unset($_SESSION['usuarios']);
+                                ?>
+                            </table>
+
+                        </div>
+                        <div class="tab-pane" id="segundo" role="tabpanel" aria-labelledby="segundo-tab">2</div>
+                        <div class="tab-pane" id="terceiro" role="tabpanel" aria-labelledby="terceiro-tab">3</div>
                     </div>
                 </div>
             </div>

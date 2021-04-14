@@ -77,7 +77,18 @@ include('../config/middleware/check_login.php');
                                 <div class="form-group row">
                                     <label for="office" class="col-md-4 col-form-label text-md-right">Cargo</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="office" class="form-control" name="cargo" required>
+                                        <select class="custom-select" name='cargo'>
+                                            <option selected>Cargos</option>
+                                            <option value="administrador">Administrador</option>
+                                            <option value="auxiliar de vendas">Auxiliar de Vendas</option>
+                                            <option value="auxiliar contabil">Auxiliar Contábil</option>
+                                            <option value="desenvolvedor">Desenvolvedor</option>
+                                            <option value="gerente de compras">Gerente de Compras</option>
+                                            <option value="gerente geral">Gerente Geral</option>
+                                            <option value="gerente de rh">Gerente de Recursos Humanos</option>
+                                            <option value="gerente de vendas">Gerente de Vendas</option>
+                                            <option value="tesoureiro">Tesoureiro</option>
+                                        </select>
                                     </div>
                                 </div>
 
