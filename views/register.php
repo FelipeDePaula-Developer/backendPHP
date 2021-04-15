@@ -85,7 +85,7 @@ include('../config/middleware/check_login.php');
                                             <option value="desenvolvedor">Desenvolvedor</option>
                                             <option value="gerente de compras">Gerente de Compras</option>
                                             <option value="gerente geral">Gerente Geral</option>
-                                            <option value="gerente de rh">Gerente de Recursos Humanos</option>
+                                            <option value="gerente de recursos humanos">Gerente de Recursos Humanos</option>
                                             <option value="gerente de vendas">Gerente de Vendas</option>
                                             <option value="tesoureiro">Tesoureiro</option>
                                         </select>

@@ -19,6 +19,7 @@ if(isset($_POST['usuario'], $_POST['senha'])){
             if(password_verify($senha, $info[senha]) ){
                 $_SESSION['login'] = true;
                 $_SESSION['nome'] = $info['nome'];
+                $_SESSION['cargo'] = $info['cargo'];
                 header('Location: ../../index.php');
                 die();
             }else{

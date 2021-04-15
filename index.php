@@ -62,6 +62,7 @@ Coded by www.creative-tim.com
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav" role='tablist'>
+                <?php if($_SESSION['cargo'] == 'administrador' || $_SESSION['cargo'] == 'gerente geral'):?>
                     <li class='nav-item'>
                         <a class="nav-link" id="painel-user-tab" data-toggle="tab" href="#painel-user" role="tab"
                             aria-controls="painel-user" aria-selected="true">
@@ -69,6 +70,7 @@ Coded by www.creative-tim.com
                             <p>Painel de Usuarios</p>
                         </a>
                     </li>
+                <?php endif; ?>
                     <li class='nav-item'>
                         <a class="nav-link" id="segundo-tab" data-toggle="tab" href="#segundo" role="tab"
                             aria-controls="segundo" aria-selected="false">
@@ -158,40 +160,47 @@ Coded by www.creative-tim.com
                 </div>
             </nav>
             <!-- End Navbar -->
+
+
             <div class="content">
                 <div class="row">
                     <div class="col-md-12 tab-content">
+                        
+                        <?php if($_SESSION['cargo'] == 'administrador' || $_SESSION['cargo'] == 'gerente geral'):?>
                         <div class="tab-pane" id="painel-user" role="tabpanel" aria-labelledby="painel-user-tab">
-
-                            <a href='config/consult_user.php'>Consulta</a>
                             <table class='table'>
                                 <thead>
                                     <tr>
+                                        <th scope='col'>ID</th>
                                         <th scope='col'>Nome</th>
                                         <th scope='col'>Usuário</th>
                                         <th scope='col'>Cargo</th>
                                     </tr>
                                 </thead>
                                 <?php 
-                                $info = $_SESSION['usuarios'];
-                                for($i =0; $i < count($info); $i++):?>
+                                $result = $pdo->query('SELECT userid, nome, usuario, cargo FROM usuarios'); 
+                                $info = $result -> fetchAll(PDO::FETCH_ASSOC);
+                                for($i =1; $i < count($info); $i++):?>
                                 <tr>
+                                    <td><?php echo $i ?></td>
                                     <td><?php echo $info[$i]['nome'] ?></td>
                                     <td><?php echo $info[$i]['usuario'] ?></td>
                                     <td><?php echo ucfirst($info[$i]['cargo']) ?></td>
                                     <td>
-                                        <a class='exc-link' href="#">
+                                        <a class='exc-link' href="config/exc_user.php?func=deleta&id=<?php echo $info[$i]['userid'];?>">
                                             <i class="bi bi-person-dash-fill"></i>
                                             Excluir
                                         </a>
                                     </td>
                                 </tr>
-                                <?php endfor;
-                                unset($_SESSION['usuarios']);
-                                ?>
+                                <?php endfor;?>
+                                
                             </table>
-
                         </div>
+                        <?php endif; ?>
+
+
+
                         <div class="tab-pane" id="segundo" role="tabpanel" aria-labelledby="segundo-tab">2</div>
                         <div class="tab-pane" id="terceiro" role="tabpanel" aria-labelledby="terceiro-tab">3</div>
                     </div>

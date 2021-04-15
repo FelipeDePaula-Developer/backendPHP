@@ -27,6 +27,7 @@ if(isset($_POST['nome'], $_POST['usuario'], $_POST['senha'], $_POST['cargo'])){
         $query->execute($dados_cadastrais);
         $_SESSION['login'] = true;
         $_SESSION['nome'] = $nome;
+        $_SESSION['cargo'] = $cargo;
         header('Location: ../../index.php');
         die();
     }
